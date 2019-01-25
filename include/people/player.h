@@ -7,7 +7,8 @@ namespace people {
 	protected:
 		void _todo();
 	public:
-		int get_user(std::string, std::string);
+		int login(std::string, std::string);
+		int regis(std::string, std::string);
 		Player();
 	};
 };

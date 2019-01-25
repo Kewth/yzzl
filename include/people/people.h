@@ -14,10 +14,13 @@ namespace people {
 		std::map<map::Map*, pos::Pos> _pos;
 		map::Map *_now_map;
 		virtual void _todo() = 0;
+		int _lv;
 	public:
+		long long m_exp;
 		int goin(floor::Floor *); // 事件：进入地面
 		void move(pos::Pos); // 在 Map 中移动到某位置
 		void todo(); // 观察，作出决策
+		People();
 	};
 };
 #endif
