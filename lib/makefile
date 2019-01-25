@@ -1,4 +1,4 @@
-bulid/lock: bulid/color.o bulid/cursor.o bulid/ytime.o
+bulid/lock: bulid/color.o bulid/cursor.o bulid/ytime.o bulid/pos.o
 	touch bulid/lock
 
 bulid/color.o: color.cpp
@@ -9,3 +9,7 @@ bulid/cursor.o: cursor.cpp
 
 bulid/ytime.o: ytime.cpp
 	g++ -c $^ -o $@
+
+bulid/pos.o: pos.cpp
+	g++ -c $^ -o $@
+
