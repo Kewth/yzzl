@@ -4,8 +4,8 @@
 namespace pos {
 	class Pos {
 	protected:
-		int _x, _y;
 	public:
+		int _x, _y;
 		Pos(int, int);
 		bool operator < (Pos) const;
 	};
