@@ -3,7 +3,8 @@ dist/yzzl: \
 	build/color.o build/cursor.o build/pos.o build/ytime.o build/input.o \
 	build/people.o build/player.o \
 	build/map.o \
-	build/floor.o build/base_floor.o
+	build/floor.o build/base_floor.o \
+	build/users.o
 	g++ $^ -o $@ -lpthread -std=c++11
 	# -I/usr/include/python2.7 -lpython2.7
 
@@ -44,6 +45,9 @@ build/base_floor.o: source/floor/base_floor.cpp
 	g++ -c $^ -o $@
 
 build/input.o: lib/input.cpp
+	g++ -c $^ -o $@
+
+build/users.o: source/users.cpp
 	g++ -c $^ -o $@
 
 clean:
