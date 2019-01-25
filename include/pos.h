@@ -6,7 +6,7 @@ namespace pos {
 	protected:
 	public:
 		int _x, _y;
-		Pos(int, int);
+		Pos(int=0, int=0);
 		bool operator < (Pos) const;
 	};
 	template<class T>
