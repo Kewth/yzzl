@@ -4,6 +4,6 @@ namespace people {
 	class Player;
 };
 namespace users {
-	int login(people::Player*, bool);
+	int login(people::Player*);
 };
 #endif

@@ -42,7 +42,9 @@ static std::string get_name(std::string name, bool hide) {
 }
 
 namespace users {
-	int login(people::Player *p, bool regis) {
+	int login(people::Player *p) {
+		printf("登录（y)或注册（n)？");
+		bool regis = ! input::chooseyn();
 		std::string name = get_name("用户名", false);
 		if(name.empty()) {
 			puts("用户名为空！");
