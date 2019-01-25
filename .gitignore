@@ -1,3 +1,4 @@
 build/*.o
 dist/yzzl
 lib/build/*.o
+debug/*
