@@ -20,4 +20,10 @@ namespace input {
 		}
 		return ch;
 	}
+	bool chooseyn() {
+		int ch = getch();
+		while(ch != 'y' and ch != 'n')
+			ch = getch();
+		return ch == 'y';
+	}
 };
