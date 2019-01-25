@@ -1,6 +1,6 @@
 dist/yzzl: \
 	build/main.o build/begin_flash.o \
-	build/color.o build/cursor.o build/pos.o build/ytime.o \
+	build/color.o build/cursor.o build/pos.o build/ytime.o build/input.o \
 	build/people.o build/player.o \
 	build/map.o \
 	build/floor.o build/base_floor.o
@@ -41,6 +41,9 @@ build/floor.o: source/floor/floor.cpp
 	g++ -c $^ -o $@
 
 build/base_floor.o: source/floor/base_floor.cpp
+	g++ -c $^ -o $@
+
+build/input.o: lib/input.cpp
 	g++ -c $^ -o $@
 
 clean:
