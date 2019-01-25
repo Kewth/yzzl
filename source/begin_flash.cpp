@@ -55,7 +55,7 @@ void begin_flash::Marix::mid_disapeear() {
 void begin_flash::flash(std::string info, bool speedup) {
 	// 以黑白加速闪动特效输出 [info]
 	color::Color *cr[2] = {new color::Black(0), new color::White(0)};
-	for(int i=0; i<20; i++) {
+	for(int i=0; i < (speedup?20:10); i++) {
 		cr[i & 1]->change_fore();
 		std::cout << info << std::endl;
 		cursor::up();
@@ -69,6 +69,8 @@ void begin_flash::flash(std::string info, bool speedup) {
 
 void begin_flash::welcome() {
 	// 欢迎界面
+	cursor::clear_screen();
+	cursor::set_to(0, 0);
 	begin_flash::flash("Welcome to yzzl", true);
 	const int high = 11, width = 30;
 	char s[high][width] = {
