@@ -5,16 +5,22 @@
 #include "../include/cursor.h"
 
 static std::string get_name(std::string name, bool hide) {
+	const int MAX_USER_NAME_LENGTH = 10;
+
 	cursor::clear_screen();
 	cursor::set_to(0, 0);
-	char res[11];
+	char res[MAX_USER_NAME_LENGTH + 1];
 	begin_flash::flash("请输入" + name + "：", false);
 	int ch, size = 0;
 	const char *info = " qwq ";
-	while(size < 10) {
-		printf("----------|| %d/%d \n", size, 10);
+	while(size < MAX_USER_NAME_LENGTH) {
+		/* output :----------|| 0/xx */
+		for(int i=0; i<MAX_USER_NAME_LENGTH; ++i)
+			putchar('-');
+		printf("|| %d/%d \n", size, MAX_USER_NAME_LENGTH);
+
 		printf("1. %s由大写或小写字母或数字组成\n", name.c_str());
-		printf("2. %s长度不超过 10\n", name.c_str());
+		printf("2. %s长度不超过 %d\n", name.c_str(), MAX_USER_NAME_LENGTH);
 		printf("3. 按 Enter 确认\n");
 		printf("4. 按 Ctrl-H 删除\n");
 		printf("%s\n", info);
@@ -64,6 +70,7 @@ namespace users {
 		} else {
 			p->login(name, pass);
 		}
+		cursor::clear_screen();
 		return 0;
 	}
 };
