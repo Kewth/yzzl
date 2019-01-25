@@ -1,6 +1,6 @@
 #include <sys/time.h>
 #include <unistd.h>
-#include "head_file/ytime.h"
+#include "../include/ytime.h"
 
 void ytime::ysleep(double time) {
 	// 休眠 [time] 秒

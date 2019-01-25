@@ -1,5 +1,5 @@
 #include <cstdio>
-#include "head_file/color.h"
+#include "../include/color.h"
 
 void color::Color::change_fore() {
 	_change_fore();

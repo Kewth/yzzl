@@ -1,5 +1,5 @@
 #include <cstdio>
-#include "head_file/cursor.h"
+#include "../include/cursor.h"
 
 void cursor::up(int times) {
 	printf("\033[%dA", times);

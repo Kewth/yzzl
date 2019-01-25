@@ -1,9 +1,9 @@
 #include <iostream>
 #include <cstring>
-#include "head_file/ytime.h"
-#include "head_file/color.h"
-#include "head_file/cursor.h"
-#include "head_file/begin_flash.h"
+#include "../include/ytime.h"
+#include "../include/color.h"
+#include "../include/cursor.h"
+#include "../include/begin_flash.h"
 
 begin_flash::Marix::Marix(char s[12][30]): high(12), width(30) {
 	for(int i=0;i<high;i++)
