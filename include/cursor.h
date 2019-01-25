@@ -6,6 +6,8 @@ namespace cursor {
 	void left(int=1);
 	void right(int=1);
 	void to_head();
+	void clear_screen();
+	void set_to(int, int);
 };
 #endif
 

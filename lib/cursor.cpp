@@ -17,4 +17,10 @@ namespace cursor {
 	void to_head() {
 		printf("\n\033[1A");
 	}
+	void clear_screen() {
+		printf("\033[2J");
+	}
+	void set_to(int x, int y) {
+		printf("\033[%d;%dH", x, y);
+	}
 };
