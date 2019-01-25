@@ -16,7 +16,7 @@ namespace map {
 		int high, width;
 		int people_move(people::People*, pos::Pos, pos::Pos);
 		Map(int, int);
-		~Map();
+		virtual ~Map();
 	};
 };
 #endif

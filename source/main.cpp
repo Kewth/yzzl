@@ -6,4 +6,5 @@ int main(int, const char **) {
 	begin_flash::welcome();
 	people::Player *self = new people::Player();
 	users::login(self);
+	delete self;
 }

@@ -4,6 +4,8 @@ namespace people {
 	Player::Player():
 		People() {
 	}
+	Player::~Player() {
+	}
 	int Player::login(std::string name, std::string pass) {
 		// 在接口调好之前，先用着吧， ~~不碍事~~
 		int res =

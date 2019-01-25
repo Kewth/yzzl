@@ -21,6 +21,7 @@ namespace people {
 		void move(pos::Pos); // 在 Map 中移动到某位置
 		void todo(); // 观察，作出决策
 		People();
+		virtual ~People();
 	};
 };
 #endif

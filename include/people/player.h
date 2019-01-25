@@ -10,6 +10,7 @@ namespace people {
 		int login(std::string, std::string);
 		int regis(std::string, std::string);
 		Player();
+		~Player();
 	};
 };
 #endif
