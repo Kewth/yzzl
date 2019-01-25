@@ -12,6 +12,6 @@ namespace begin_flash {
 		Marix(pos::Coord_map<char>);
 	};
 	void welcome();
-	void flash(std::string);
+	void flash(std::string, bool);
 };
 #endif

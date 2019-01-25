@@ -52,20 +52,23 @@ void begin_flash::Marix::mid_disapeear() {
 	}
 }
 
-void begin_flash::flash(std::string info) {
+void begin_flash::flash(std::string info, bool speedup) {
 	// 以黑白加速闪动特效输出 [info]
 	color::Color *cr[2] = {new color::Black(0), new color::White(0)};
 	for(int i=0; i<20; i++) {
 		cr[i & 1]->change_fore();
 		std::cout << info << std::endl;
 		cursor::up();
-		ytime::ysleep(0.2 - 0.01 * i);
+		if(speedup)
+			ytime::ysleep(0.2 - 0.01 * i);
+		else
+			ytime::ysleep(0.2);
 	}
 }
 
 void begin_flash::welcome() {
 	// 欢迎界面
-	begin_flash::flash("Welcome to yzzl");
+	begin_flash::flash("Welcome to yzzl", true);
 	const int high = 11, width = 30;
 	char s[high][width] = {
 		"                      ''#    ",
