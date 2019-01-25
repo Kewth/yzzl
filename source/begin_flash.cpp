@@ -64,6 +64,7 @@ void begin_flash::flash(std::string info, bool speedup) {
 		else
 			ytime::ysleep(0.2);
 	}
+	delete cr[0], cr[1];
 }
 
 void begin_flash::welcome() {
