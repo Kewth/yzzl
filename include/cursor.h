@@ -5,7 +5,7 @@ namespace cursor {
 	void down(int=1);
 	void left(int=1);
 	void right(int=1);
-	void to_haed();
+	void to_head();
 };
 #endif
 

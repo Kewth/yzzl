@@ -14,7 +14,7 @@ namespace cursor {
 	void right(int times) {
 		printf("\033[%dD", times);
 	}
-	void to_haed() {
+	void to_head() {
 		printf("\n\033[1A");
 	}
 };
