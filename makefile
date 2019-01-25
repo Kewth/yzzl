@@ -5,8 +5,7 @@ dist/yzzl: \
 	build/map.o \
 	build/floor.o build/base_floor.o \
 	build/users.o
-	g++ $^ -o $@ -lpthread -std=c++11
-	# -I/usr/include/python2.7 -lpython2.7
+	g++ $^ -o $@ -lpthread -std=c++11 -I/usr/include/python3.6m -lpython3.6m
 
 # lib/build/lock: lib/*.cpp
 	# cd lib ; make ; cd ..
