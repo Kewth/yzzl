@@ -8,7 +8,7 @@ static std::string get_name(std::string name, bool hide) {
 	const int MAX_USER_NAME_LENGTH = 15;
 	cursor::clear_screen();
 	cursor::set_to(0, 0);
-	char res[MAX_USER_NAME_LENGTH + 1];
+	char get[MAX_USER_NAME_LENGTH + 1];
 	begin_flash::flash("请输入" + name + "：", false);
 	int ch, size = 0;
 	const char *info = " qwq ";
@@ -25,7 +25,7 @@ static std::string get_name(std::string name, bool hide) {
 		printf("%s\n", info);
 		cursor::up(6);
 		for(int i=0; i<size; i++)
-			putchar(hide ? '*' : res[i]);
+			putchar(hide ? '*' : get[i]);
 		cursor::to_head();
 		ch = input::getch();
 		if(ch == '\n' or ch == '\r') break;
@@ -38,12 +38,15 @@ static std::string get_name(std::string name, bool hide) {
 			}
 		} else if((ch >= 'a' and ch <= 'z') or (ch >= 'A' and ch <= 'Z')
 				or (ch >= '0' and ch <= '9')) {
-			res[size ++] = ch;
+			get[size ++] = ch;
 			info = "             "; // 用于覆盖旧信息
 		} else
 			info = "非法字符     ";
 	}
-	return (std::string)res;
+	std::string res;
+	for(int i=0;i<size;i++)
+		res += get[i];
+	return res;
 }
 
 namespace users {
@@ -65,9 +68,17 @@ namespace users {
 				puts("密码不匹配！");
 				return 2;
 			}
-			p->regis(name, pass);
+			int playeres = p->regis(name, pass);
+			if(playeres) {
+				puts("注册失败，可能用户名冲突");
+				return 3;
+			}
 		} else {
-			p->login(name, pass);
+			int playeres = p->login(name, pass);
+			if(playeres) {
+				puts("登录失败，可能用户名或密码错误");
+				return 3;
+			}
 		}
 		cursor::clear_screen(); // 清除登录/注册时的输出
 		begin_flash::flash("成功获得用户", false);

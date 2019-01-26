@@ -20,6 +20,6 @@ def main():
         return 2
     user.fetch()
     out.write('exp: {:d}\n'.format(user.get('exp')))
-    return 1
+    return 0
 
 sys.exit(main())
