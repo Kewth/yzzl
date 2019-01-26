@@ -15,13 +15,14 @@ namespace people {
 		// 之后在这提供派生类的接口
 		return 0;
 	}
-	void People::move(pos::Pos ne) {
+	int People::move(pos::Pos ne) {
 		// 在 _now_map 中移动
 		int moveres = _now_map->people_move(this, _pos.front(), ne);
 		if(moveres == 0) {
 			_pos.pop();
 			_pos.push(ne);
 		}
+		return moveres;
 	}
 	void People::todo() {
 		_todo();

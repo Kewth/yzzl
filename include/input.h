@@ -6,5 +6,6 @@ namespace input {
 	bool choose_in_cases(int *accept, int accept_num,
 		       	int *denied, int denied_num);
 	bool chooseyn();
+	bool kbhit(); // 返回是否有键盘输入
 };
 #endif

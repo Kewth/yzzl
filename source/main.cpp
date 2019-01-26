@@ -12,9 +12,6 @@ int main(int, const char **) {
 	self->join_map(city);
 	while(true) {
 		self->todo();
-		int choose = input::getch();
-		if(choose == 'q')
-			break;
 	}
 	/* delete self; */ // emm delete city 的同时会 delete self.
 	delete city;
