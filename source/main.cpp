@@ -11,7 +11,7 @@ int main(int, const char **) {
 		return 1;
 	map::Map *city = new map::Maincity();
 	self->join_map(city);
-	while(true) {
+	while(self->get_map()) {
 		self->todo();
 	}
 	/* delete self; */ // emm delete city 的同时会 delete self.
