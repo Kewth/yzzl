@@ -5,8 +5,7 @@
 #include "../include/cursor.h"
 
 static std::string get_name(std::string name, bool hide) {
-	const int MAX_USER_NAME_LENGTH = 10;
-
+	const int MAX_USER_NAME_LENGTH = 15;
 	cursor::clear_screen();
 	cursor::set_to(0, 0);
 	char res[MAX_USER_NAME_LENGTH + 1];
@@ -35,12 +34,12 @@ static std::string get_name(std::string name, bool hide) {
 				info = (name + "已空     ").c_str();
 			else {
 				size --;
-				info = "             ";
+				info = "             "; // 用于覆盖旧信息
 			}
 		} else if((ch >= 'a' and ch <= 'z') or (ch >= 'A' and ch <= 'Z')
 				or (ch >= '0' and ch <= '9')) {
 			res[size ++] = ch;
-			info = "             ";
+			info = "             "; // 用于覆盖旧信息
 		} else
 			info = "非法字符     ";
 	}
