@@ -61,5 +61,12 @@ namespace color {
 	public:
 		Purple(int=0);
 	};
+	class Random: public Color {
+	protected:
+		void _change_fore();
+		void _change_back();
+	public:
+		Random(int=0);
+	};
 };
 #endif

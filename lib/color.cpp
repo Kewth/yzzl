@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <cstdlib>
 #include "../include/color.h"
 
 namespace color {
@@ -115,4 +116,19 @@ namespace color {
 		printf("\033[43m");
 	}
 
+	// 随机字体
+	Random::Random(int start): Color() {
+		if(start & 1)
+			change_fore();
+		if(start & 2)
+			change_back();
+	}
+	void Random::_change_fore() {
+		srand(rand());
+		printf("\033[3%dm", rand() % 8);
+	}
+	void Random::_change_back() {
+		srand(rand());
+		printf("\033[4%dm", rand() % 8);
+	}
 };
