@@ -70,6 +70,7 @@ namespace users {
 		} else {
 			p->login(name, pass);
 		}
+		begin_flash::flash("成功获得用户", false);
 		cursor::clear_screen();
 		return 0;
 	}
