@@ -86,8 +86,8 @@ void begin_flash::welcome() {
 		"  m'                __/      ",
 		" ''           _____/     ^/  ",
 		"             /        ==<@>==",
-		"    ----- Created by    /v   ",
-		"         __/ Kewth.K.D.      ",
+		"----- Created by        /v   ",
+		" __/ Kewth.K.D. and ld_liaomo",
 		"                             ",
 	};
 	pos::Coord_map<char> map(high, width);
