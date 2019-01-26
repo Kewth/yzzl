@@ -27,6 +27,7 @@ void begin_flash::Marix::ob_print() {
 		cursor::up(_map.high);
 	}
 	cursor::down(_map.high);
+	gr.reset_fore();
 }
 
 void begin_flash::Marix::mid_disapeear() {
@@ -50,6 +51,7 @@ void begin_flash::Marix::mid_disapeear() {
 		ytime::ysleep(0.1);
 		cursor::up(_map.high);
 	}
+	gr.reset_fore();
 }
 
 void begin_flash::flash(std::string info, bool speedup) {
@@ -64,6 +66,7 @@ void begin_flash::flash(std::string info, bool speedup) {
 		else
 			ytime::ysleep(0.2);
 	}
+	cr[0]->reset_fore();
 	delete cr[0];
 	delete cr[1];
 }

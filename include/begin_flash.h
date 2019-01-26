@@ -7,7 +7,7 @@ namespace begin_flash {
 	protected:
 		pos::Coord_map<char> _map;
 	public:
-		void ob_print(); // 斜向逐渐打印矩阵并使其消失
+		void ob_print(); // 斜向逐渐打印矩阵
 		void mid_disapeear(); // 使字符矩阵中间向四周消失
 		Marix(pos::Coord_map<char>);
 	};
