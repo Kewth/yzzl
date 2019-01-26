@@ -24,7 +24,7 @@ namespace people {
 		char face;
 		long long m_exp;
 		int goin(floor::Floor *); // 事件：进入地面
-		void move(pos::Pos); // 在 Map 中移动到某位置
+		int move(pos::Pos); // 在 Map 中移动到某位置
 		void todo(); // 观察，作出决策
 		void join_map(map::Map *);
 		void leave_map();
