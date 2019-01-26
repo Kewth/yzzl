@@ -15,10 +15,10 @@ namespace people {
 	}
 	char Player::_get_face() {
 		switch(_fg) {
-			case 'w': return '^';
-			case 's': return 'v';
-			case 'a': return '<';
-			case 'd': return '>';
+			case 'h': return '<';
+			case 'j': return 'v';
+			case 'k': return '^';
+			case 'l': return '>';
 			default: return face;
 		}
 	}
@@ -74,10 +74,11 @@ namespace people {
 	void Player::_analyze_choose(char cs) {
 		pos::Pos ps = get_pos();
 		switch(cs) {
-			case 'h': move(pos::Pos(ps._x, ps._y - 1)); break;
-			case 'j': move(pos::Pos(ps._x + 1, ps._y)); break;
-			case 'k': move(pos::Pos(ps._x - 1, ps._y)); break;
-			case 'l': move(pos::Pos(ps._x, ps._y + 1)); break;
+			case 'h': _fg = 'h'; move(pos::Pos(ps._x, ps._y - 1)); break;
+			case 'j': _fg = 'j'; move(pos::Pos(ps._x + 1, ps._y)); break;
+			case 'k': _fg = 'k'; move(pos::Pos(ps._x - 1, ps._y)); break;
+			case 'l': _fg = 'l'; move(pos::Pos(ps._x, ps._y + 1)); break;
+			default: break;
 		}
 	}
 	void Player::_todo() {
