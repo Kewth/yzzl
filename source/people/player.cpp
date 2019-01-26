@@ -3,6 +3,7 @@
 #include "../../include/color.h"
 #include "../../include/all_map.h"
 #include "../../include/all_floor.h"
+#include "../../include/input.h"
 
 namespace people {
 	Player::Player():
@@ -70,8 +71,20 @@ namespace people {
 			std::cout << std::endl;
 		}
 	}
+	void Player::_analyze_choose(char cs) {
+		pos::Pos ps = get_pos();
+		switch(cs) {
+			case 'h': move(pos::Pos(ps._x, ps._y - 1)); break;
+			case 'j': move(pos::Pos(ps._x + 1, ps._y)); break;
+			case 'k': move(pos::Pos(ps._x - 1, ps._y)); break;
+			case 'l': move(pos::Pos(ps._x, ps._y + 1)); break;
+		}
+	}
 	void Player::_todo() {
 		_print_map();
+		int choose = input::ifgetch(0.2);
+		if(~ choose)
+			_analyze_choose(choose);
 	}
 };
 
