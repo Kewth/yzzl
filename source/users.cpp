@@ -65,9 +65,17 @@ namespace users {
 				puts("密码不匹配！");
 				return 2;
 			}
-			p->regis(name, pass);
+			int playeres = p->regis(name, pass);
+			if(playeres) {
+				puts("注册失败，可能用户名冲突");
+				return 3;
+			}
 		} else {
-			p->login(name, pass);
+			int playeres = p->login(name, pass);
+			if(playeres) {
+				puts("登录失败，可能用户名或密码错误");
+				return 3;
+			}
 		}
 		cursor::clear_screen(); // 清除登录/注册时的输出
 		begin_flash::flash("成功获得用户", false);
