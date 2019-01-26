@@ -1,5 +1,5 @@
 COMPILER=g++
-CXXFLAGS=-Wall -O2
+CXXFLAGS=-Wall -O2 -Werror -I ./include/
 OBJECT=build/main.o build/begin_flash.o build/color.o build/cursor.o build/pos.o \
        build/ytime.o build/input.o build/people.o build/player.o build/map.o \
        build/floor.o build/base_floor.o build/users.o

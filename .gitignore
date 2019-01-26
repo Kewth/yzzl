@@ -1,5 +1,6 @@
 build/
 lib/build/*.o
+lib/test/
 debug/*
 dist/
 *.o

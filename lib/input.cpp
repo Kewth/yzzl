@@ -20,10 +20,24 @@ namespace input {
 		}
 		return ch;
 	}
+
+	bool choose_in_cases(int *accept_option, int accept_option_num,
+			int *denied_option, int denied_option_num)
+	{
+		for (; ;) {
+			int ch = getch(), i;
+			for (i = 0; i < accept_option_num; ++i)
+				if (ch == accept_option[i])
+					return true;
+			for (i = 0; i < denied_option_num; ++i)
+				if (ch == denied_option[i])
+					return false;
+		}
+		return true;
+	}
+
 	bool chooseyn() {
-		int ch = getch();
-		while(ch != 'y' and ch != 'n')
-			ch = getch();
-		return ch == 'y';
+		int accept[2] = {'y', 'Y'}, denied[2] = {'n', 'N'};
+		return choose_in_cases(accept, 2, denied, 2);
 	}
 };
