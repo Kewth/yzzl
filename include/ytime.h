@@ -2,6 +2,8 @@
 #define ytime_H
 namespace ytime {
 	void ysleep(double);
-	int clock();
+	unsigned long long clock(void);
+	void ycsleep(double);
+	unsigned long long cclock(void);
 };
 #endif

@@ -1,11 +1,11 @@
 OBJECT=build/color.o build/cursor.o build/ytime.o build/pos.o
 COMPILER=g++
 CXXFLAGS=-Wall -Werror -Wshadow -O2 -DNDEBUG -I ../include/
-TESTCASE=test/test-input
+TESTCASE=test/input test/ytime
 
 all: build-dir ${OBJECT}
 
-test: test-dir ${TESTCASE}
+test: build-dir ${OBJECT} test-dir ${TESTCASE}
 
 build-dir:
 	mkdir -p build
@@ -28,7 +28,10 @@ build/input.o: input.cpp
 test-dir:
 	mkdir -p test
 
-test/test-input: build/input.o test-input.cpp
+test/input: build/input.o test-input.cpp
+	${COMPILER} ${CXXFLAGS} $^ -o $@
+
+test/ytime: build/input.o build/ytime.o test-ytime.cpp
 	${COMPILER} ${CXXFLAGS} $^ -o $@
 
 clean:

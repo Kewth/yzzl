@@ -1,16 +1,44 @@
 #include <sys/time.h>
 #include <unistd.h>
 #include "../include/ytime.h"
+#include <ctime>
 
-void ytime::ysleep(double time) {
-	// 休眠 [time] 秒
-	usleep(time * 1e6);
-}
+namespace ytime {
+	void ysleep(double time) {
+		// 休眠 [time] 秒
+		usleep(time * 1e6);
+	}
 
-int ytime::clock() {
-	// 获取程序运行时间
-	struct timeval tv;
-	struct timezone tz;
-	gettimeofday(&tv, &tz);
-	return tv.tv_sec * 1000 + tv.tv_usec / 1000;
-}
+	void ycsleep(double time)
+	{
+		/*
+		 * ysleep的标准库实现，在延迟两秒时和ysleep有1微秒的差距。
+		 * ysleep:  2000ms
+		 * ycsleep: 2001ms
+		 */
+		clock_t end = std::clock() + time * CLOCKS_PER_SEC;
+		while (std::clock() < end);
+	}
+
+	unsigned long long clock(void) {
+		// 获取程序运行时间
+		struct timeval tv;
+		struct timezone tz;
+		gettimeofday(&tv, &tz);
+		return tv.tv_sec * 1000 + tv.tv_usec / 1000;
+	}
+
+	unsigned long long cclock(void)
+	{
+		/*
+		 * ytime::clock的标准库实现。
+		 *
+		 * ==========================================
+		 * W A R N I N G :
+		 * 不可和getch()一同使用。会被阻塞导致无法计时。
+		 * ==========================================
+		 */
+		return (unsigned long long)
+			((double)std::clock() * 1000.0 / CLOCKS_PER_SEC);
+	}
+};
