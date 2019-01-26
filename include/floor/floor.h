@@ -3,6 +3,9 @@
 namespace people {
 	class People;
 };
+namespace map {
+	class Map;
+};
 namespace color {
 	class Color;
 };
