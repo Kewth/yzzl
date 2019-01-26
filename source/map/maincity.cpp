@@ -6,7 +6,10 @@ namespace map {
 		Map(10, 10) {
 		for(int i=0;i<high;i++)
 			for(int j=0;j<width;j++)
-				_floor(i, j) = new floor::Grass();
+				if(i == high - 1 and j == width - 1)
+					_floor(i, j) = new floor::End_floor();
+				else
+					_floor(i, j) = new floor::Grass();
 	}
 	Maincity::~Maincity() {
 	}
