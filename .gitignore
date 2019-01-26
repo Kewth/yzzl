@@ -1,4 +1,4 @@
-build/*.o
+build/
 lib/build/*.o
 debug/*
-dist/*
+dist/
