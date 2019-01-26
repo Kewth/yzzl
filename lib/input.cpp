@@ -1,4 +1,6 @@
 #include <termios.h>
+#include <unistd.h>
+#include <fcntl.h>
 #include <cstdio>
 #include "../include/input.h"
 #include "../include/ytime.h"
@@ -25,8 +27,8 @@ namespace input {
 	int ifgetch(double time) {
 		unsigned long long end = ytime::clock() + time * 1000;
 		while(ytime::clock() < end) {
-			/* if(kbhit()) */ // 就等着你的 kbhit 了
-			/* 	return getch(); */
+			if(kbhit())
+				return getch();
 		}
 		return -1;
 	}
@@ -49,5 +51,25 @@ namespace input {
 	bool chooseyn() {
 		int accept[2] = {'y', 'Y'}, denied[2] = {'n', 'N'};
 		return choose_in_cases(accept, 2, denied, 2);
+	}
+
+	bool kbhit() {
+		struct termios oldt, newt;
+		int ch;
+		int oldf;
+		tcgetattr(STDIN_FILENO, &oldt);
+		newt = oldt;
+		newt.c_lflag &= ~(ICANON | ECHO);
+		tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+		oldf = fcntl(STDIN_FILENO, F_GETFL, 0);
+		fcntl(STDIN_FILENO, F_SETFL, oldf | O_NONBLOCK);
+		ch = getchar();
+		tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+		fcntl(STDIN_FILENO, F_SETFL, oldf);
+		if(ch != EOF) {
+			ungetc(ch, stdin);
+			return 1;
+		}
+		return 0;
 	}
 };
