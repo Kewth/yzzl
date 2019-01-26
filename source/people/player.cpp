@@ -52,12 +52,12 @@ namespace people {
 					putchar(_get_face());
 				}
 				else {
-					People *p = _now_map->get_people(get_pos(), i, j);
+					People *p = get_map()->get_people(get_pos(), i, j);
 					if(p) { // 该位置有人
 						p->color->change_fore();
 						putchar(p->face);
 					} else {
-						floor::Floor *f = _now_map->get_floor(get_pos(), i, j);
+						floor::Floor *f = get_map()->get_floor(get_pos(), i, j);
 						if(f) {
 							f->color->change_fore();
 							putchar(f->face);
