@@ -1,6 +1,7 @@
 #include <termios.h>
 #include <cstdio>
-#include "../include/input.h"
+#include <cstring>
+#include "input.h"
 
 namespace input {
 	int getch() {
@@ -21,23 +22,19 @@ namespace input {
 		return ch;
 	}
 
-	bool choose_in_cases(int *accept_option, int accept_option_num,
-			int *denied_option, int denied_option_num)
+	bool choose_in_cases(const char *accept_option, const char *denied_option)
 	{
 		for (; ;) {
-			int ch = getch(), i;
-			for (i = 0; i < accept_option_num; ++i)
-				if (ch == accept_option[i])
-					return true;
-			for (i = 0; i < denied_option_num; ++i)
-				if (ch == denied_option[i])
-					return false;
+			int ch = getch();
+			if (strchr(accept_option, ch) != NULL)
+				return true;
+			if (strchr(denied_option, ch) != NULL)
+				return false;
 		}
 		return true;
 	}
 
 	bool chooseyn() {
-		int accept[2] = {'y', 'Y'}, denied[2] = {'n', 'N'};
-		return choose_in_cases(accept, 2, denied, 2);
+		return choose_in_cases("Yy", "Nn");
 	}
 };
