@@ -2,3 +2,4 @@ build/
 lib/build/*.o
 debug/*
 dist/
+*.o

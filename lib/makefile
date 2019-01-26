@@ -1,15 +1,20 @@
-build/lock: build/color.o build/cursor.o build/ytime.o build/pos.o
-	touch build/lock
+OBJECT=color.o cursor.o ytime.o pos.o
+COMPILER=g++
+CXXFLAGS=-Wall -Werror -Wshadow -O2 -DNDEBUG
 
-build/color.o: color.cpp
-	g++ -c $^ -o $@
+all: ${OBJECT}
 
-build/cursor.o: cursor.cpp
-	g++ -c $^ -o $@
+color.o: color.cpp
+	${COMPILER} ${CXXFLAGS} -c $^ -o $@
 
-build/ytime.o: ytime.cpp
-	g++ -c $^ -o $@
+cursor.o: cursor.cpp
+	${COMPILER} ${CXXFLAGS} -c $^ -o $@
 
-build/pos.o: pos.cpp
-	g++ -c $^ -o $@
+ytime.o: ytime.cpp
+	${COMPILER} ${CXXFLAGS} -c $^ -o $@
 
+pos.o: pos.cpp
+	${COMPILER} ${CXXFLAGS} -c $^ -o $@
+
+clean:
+	rm -f *.o
