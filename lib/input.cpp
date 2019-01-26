@@ -1,6 +1,7 @@
 #include <termios.h>
 #include <cstdio>
 #include "../include/input.h"
+#include "../include/ytime.h"
 
 namespace input {
 	int getch() {
@@ -19,6 +20,15 @@ namespace input {
 			return -1;
 		}
 		return ch;
+	}
+
+	int ifgetch(double time) {
+		unsigned long long end = ytime::clock() + time * 1000;
+		while(ytime::clock() < end) {
+			/* if(kbhit()) */ // 就等着你的 kbhit 了
+			/* 	return getch(); */
+		}
+		return -1;
 	}
 
 	bool choose_in_cases(int *accept_option, int accept_option_num,
