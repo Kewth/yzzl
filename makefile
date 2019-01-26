@@ -2,7 +2,7 @@ COMPILER=g++
 CXXFLAGS=-Wall -Werror -I ./include/
 OBJECT=build/main.o build/begin_flash.o build/color.o build/cursor.o build/pos.o \
        build/ytime.o build/input.o build/people.o build/player.o build/map.o \
-       build/floor.o build/base_floor.o build/users.o
+       build/floor.o build/base_floor.o build/users.o build/maincity.o
 
 dist/yzzl: build dist ${OBJECT}
 	${COMPILER} ${OBJECT} -o $@ -lpthread -std=c++11 -I/usr/include/python3.6m -lpython3.6m
@@ -53,6 +53,9 @@ build/input.o: lib/input.cpp
 	${COMPILER} ${CXXFLAGS} -c $^ -o $@
 
 build/users.o: source/users.cpp
+	${COMPILER} ${CXXFLAGS} -c $^ -o $@
+
+build/maincity.o: source/map/maincity.cpp
 	${COMPILER} ${CXXFLAGS} -c $^ -o $@
 
 clean:
