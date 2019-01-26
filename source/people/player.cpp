@@ -45,6 +45,7 @@ namespace people {
 	void Player::_print_map() {
 		const int ha_high = 6, ha_width = 6; // 视野的半径（闭区间）
 		cursor::clear_screen();
+		cursor::set_to(0, 0);
 		for(int i=-ha_high; i<=ha_high; i++) {
 			for(int j=-ha_width; j<=ha_width; j++) {
 				if(not i and not j) { // Player 本身
