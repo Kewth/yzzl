@@ -69,6 +69,7 @@ namespace users {
 		} else {
 			p->login(name, pass);
 		}
+		cursor::clear_screen(); // 清除登录/注册时的输出
 		begin_flash::flash("成功获得用户", false);
 		cursor::clear_screen();
 		return 0;
