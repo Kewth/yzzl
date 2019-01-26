@@ -45,6 +45,7 @@ namespace people {
 	void Player::_print_map() {
 		const int ha_high = 6, ha_width = 6; // 视野的半径（闭区间）
 		cursor::clear_screen();
+		cursor::set_to(0, 0);
 		for(int i=-ha_high; i<=ha_high; i++) {
 			for(int j=-ha_width; j<=ha_width; j++) {
 				if(not i and not j) { // Player 本身
@@ -52,12 +53,12 @@ namespace people {
 					putchar(_get_face());
 				}
 				else {
-					People *p = _now_map->get_people(get_pos(), i, j);
+					People *p = get_map()->get_people(get_pos(), i, j);
 					if(p) { // 该位置有人
 						p->color->change_fore();
 						putchar(p->face);
 					} else {
-						floor::Floor *f = _now_map->get_floor(get_pos(), i, j);
+						floor::Floor *f = get_map()->get_floor(get_pos(), i, j);
 						if(f) {
 							f->color->change_fore();
 							putchar(f->face);

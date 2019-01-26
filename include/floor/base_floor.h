@@ -9,6 +9,14 @@ namespace floor {
 	public:
 		First_floor();
 	};
+	class End_floor: public Floor {
+		// 一个 map 指定的出口
+	protected:
+		void _meet(people::People *);
+		map::Map *_fa_m;
+	public:
+		End_floor();
+	};
 	class Grass: public Floor {
 	protected:
 		void _meet(people::People *);

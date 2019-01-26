@@ -16,7 +16,6 @@ namespace people {
 	protected:
 		std::queue<map::Map *> _map;
 		std::queue<pos::Pos> _pos;
-		map::Map *_now_map;
 		virtual void _todo() = 0;
 		int _lv;
 	public:
@@ -29,6 +28,7 @@ namespace people {
 		void join_map(map::Map *);
 		void leave_map();
 		pos::Pos get_pos();
+		map::Map *get_map();
 		People();
 		virtual ~People();
 	};
