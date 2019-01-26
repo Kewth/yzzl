@@ -37,7 +37,7 @@ namespace people {
 		_pos.pop();
 	}
 	pos::Pos People::get_pos() {
-		if(_map.empty())
+		if(_pos.empty())
 			return pos::Pos(0, 0);
 		return _pos.front();
 	}
