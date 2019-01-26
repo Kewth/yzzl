@@ -33,5 +33,33 @@ namespace color {
 	public:
 		Green(int=0);
 	};
+	class Red: public Color {
+	protected:
+		void _change_fore();
+		void _change_back();
+	public:
+		Red(int=0);
+	};
+	class Blue: public Color {
+	protected:
+		void _change_fore();
+		void _change_back();
+	public:
+		Blue(int=0);
+	};
+	class Yellow: public Color {
+	protected:
+		void _change_fore();
+		void _change_back();
+	public:
+		Yellow(int=0);
+	};
+	class Purple: public Color {
+	protected:
+		void _change_fore();
+		void _change_back();
+	public:
+		Purple(int=0);
+	};
 };
 #endif

@@ -59,4 +59,60 @@ namespace color {
 		printf("\033[42m");
 	}
 
+	// 红色字体
+	Red::Red(int start): Color() {
+		if(start & 1)
+			change_fore();
+		if(start & 2)
+			change_back();
+	}
+	void Red::_change_fore() {
+		printf("\033[31m");
+	}
+	void Red::_change_back() {
+		printf("\033[41m");
+	}
+
+	// 蓝色字体
+	Blue::Blue(int start): Color() {
+		if(start & 1)
+			change_fore();
+		if(start & 2)
+			change_back();
+	}
+	void Blue::_change_fore() {
+		printf("\033[34m");
+	}
+	void Blue::_change_back() {
+		printf("\033[44m");
+	}
+
+	// 黄色字体
+	Yellow::Yellow(int start): Color() {
+		if(start & 1)
+			change_fore();
+		if(start & 2)
+			change_back();
+	}
+	void Yellow::_change_fore() {
+		printf("\033[33m");
+	}
+	void Yellow::_change_back() {
+		printf("\033[43m");
+	}
+
+	// 紫色字体
+	Purple::Purple(int start): Color() {
+		if(start & 1)
+			change_fore();
+		if(start & 2)
+			change_back();
+	}
+	void Purple::_change_fore() {
+		printf("\033[33m");
+	}
+	void Purple::_change_back() {
+		printf("\033[43m");
+	}
+
 };
