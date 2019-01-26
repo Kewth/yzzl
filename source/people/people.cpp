@@ -14,9 +14,28 @@ namespace people {
 		return 0;
 	}
 	void People::move(pos::Pos ne) {
-		_now_map->people_move(this, _pos[_now_map], ne); // 在 _now_map 中移动
+		// 在 _now_map 中移动
+		int moveres = _now_map->people_move(this, _pos.front(), ne);
+		if(moveres == 0) {
+			_pos.pop();
+			_pos.push(ne);
+		}
 	}
 	void People::todo() {
 		_todo();
+	}
+	void People::join_map(map::Map *m) {
+		_map.push(m);
+		_now_map = m;
+		pos::Pos ne = m->recieve(this);
+		_pos.push(ne);
+	}
+	void People::leave_map() {
+		_map.pop();
+		_pos.pop();
+		_now_map = _map.front();
+	}
+	pos::Pos People::get_pos() {
+		return _pos.front();
 	}
 };

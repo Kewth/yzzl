@@ -19,8 +19,10 @@ namespace map {
 			return 2; // 越界
 		if(_people(ne))
 			return 1; // 无法移动，该位置正忙
-		_people(ol) = nullptr; // 暂时离开
-		p->goin(_floor(ne)); // 尝试进入，触发事件 goin
+		int gores = p->goin(_floor(ne)); // 尝试进入，触发事件 goin
+		if(gores)
+			return 3; // 被阻止
+		_people(ol) = nullptr;
 		_people(ne) = p;
 		return 0;
 	}
