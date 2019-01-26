@@ -8,6 +8,9 @@ namespace floor {
 namespace map {
 	class Map;
 };
+namespace color {
+	class Color;
+};
 namespace people {
 	class People {
 	protected:
@@ -17,6 +20,8 @@ namespace people {
 		virtual void _todo() = 0;
 		int _lv;
 	public:
+		color::Color *color;
+		char face;
 		long long m_exp;
 		int goin(floor::Floor *); // 事件：进入地面
 		void move(pos::Pos); // 在 Map 中移动到某位置

@@ -13,8 +13,8 @@ namespace floor {
 	class Floor {
 	protected:
 		virtual void _meet(people::People *) = 0;
-		color::Color *_cr;
 	public:
+		color::Color *color;
 		char face;
 		void meet(people::People *); // 某角色进入
 		Floor(color::Color*, char);

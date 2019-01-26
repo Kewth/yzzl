@@ -1,12 +1,14 @@
 #include "../../include/people/people.h"
 #include "../../include/floor/floor.h"
 #include "../../include/map/map.h"
+#include "../../include/color.h"
 
 namespace people {
 	People::People():
-		_lv(0), m_exp(0) {
+		_lv(0), face('?'),  m_exp(0) {
 	}
 	People::~People() {
+		delete color;
 	}
 	int People::goin(floor::Floor *f) {
 		f->meet(this);
