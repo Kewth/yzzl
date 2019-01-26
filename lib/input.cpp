@@ -71,5 +71,5 @@ namespace input {
 			return 1;
 		}
 		return 0;
-	} 
+	}
 };
