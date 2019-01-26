@@ -2,13 +2,19 @@
 #include "../include/color.h"
 
 namespace color {
+	Color::~Color() {
+	}
 	void Color::change_fore() {
 		_change_fore();
 	}
 	void Color::change_back() {
 		_change_back();
 	}
-	Color::~Color() {
+	void reset_fore() {
+		printf("\033[39m");
+	}
+	void reset_back() {
+		printf("\033[49m");
 	}
 
 	// 黑色字体

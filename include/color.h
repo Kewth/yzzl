@@ -8,6 +8,8 @@ namespace color {
 	public:
 		void change_fore();
 		void change_back();
+		void reset_fore();
+		void reset_back();
 		virtual ~Color();
 	};
 	class Black: public Color {
