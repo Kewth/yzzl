@@ -10,10 +10,10 @@ namespace color {
 	void Color::change_back() {
 		_change_back();
 	}
-	void reset_fore() {
+	void Color::reset_fore() {
 		printf("\033[39m");
 	}
-	void reset_back() {
+	void Color::reset_back() {
 		printf("\033[49m");
 	}
 
