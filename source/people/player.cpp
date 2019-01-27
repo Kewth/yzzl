@@ -77,7 +77,7 @@ namespace people {
 			case 'j': _fg = 'j'; move(pos::Pos(ps._x + 1, ps._y)); break;
 			case 'k': _fg = 'k'; move(pos::Pos(ps._x - 1, ps._y)); break;
 			case 'l': _fg = 'l'; move(pos::Pos(ps._x, ps._y + 1)); break;
-			default: break;
+			default: _fg = ' '; break;
 		}
 	}
 	void Player::_todo() {
@@ -85,6 +85,8 @@ namespace people {
 		int choose = input::ifgetch(0.2);
 		if(~ choose)
 			_analyze_choose(choose);
+		else
+			_fg = ' ';
 	}
 };
 
