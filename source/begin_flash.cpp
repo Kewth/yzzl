@@ -93,13 +93,20 @@ namespace begin_flash {
 		cursor::clear_screen();
 		cursor::set_to(0, 0);
 		begin_flash::flash("Yzzl 的诞生还要感谢许多人和软件、网站", false);
-		const int high = 5, width = 80;
+		cursor::down();
+		const int high = 11, width = 80;
 		const char s[high][width] = {
-			"                                                       ",
-			"“刘大侠”: 最古老的《勇者之路》提供了这个 idea          ",
-			"Ld_liaomo: 帮助实现和完善了 yzzl 用到的库              ",
-			"https://www.bootschool.net/ascii: 开场动画艺术字来源   ",
-			"                                                       ",
+			"                                                                 ",
+			"Liu Da Xia: His 'Yong Zhe Zhi Lu' inspire me to create yzzl      ",
+			"    whose idea is from that.                                     ",
+			"                                                                 ",
+			"Ld_liaomo: help me to write lib files which needed.              ",
+			"                                                                 ",
+			"https://www.bootschool.net/ascii: Provide the source of the      ",
+			"    opening animation which is made by ascii painting.           ",
+			"                                                                 ",
+			"And thank you to play this!                                      ",
+			"                                                                 ",
 		};
 		pos::Coord_map<char> cmap(high, width);
 		for(int i=0;i<high;i++)
