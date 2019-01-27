@@ -69,4 +69,10 @@ namespace input {
 		}
 		return 0;
 	}
+
+	void clear() {
+		// 清空键盘输入
+		while(kbhit())
+			getch();
+	}
 };
