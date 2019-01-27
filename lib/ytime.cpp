@@ -1,12 +1,16 @@
 #include <sys/time.h>
 #include <unistd.h>
 #include "../include/ytime.h"
+#include "../include/input.h"
 #include <ctime>
 
 namespace ytime {
 	void ysleep(double time) {
 		// 休眠 [time] 秒
-		usleep(time * 1e6);
+		unsigned long long end = clock() + time * 1000;
+		while(clock() < end)
+			if(input::kbhit() and input::getch() == '~') // 期间不允许用户输入
+				break;
 	}
 
 	void ycsleep(double time)
@@ -21,7 +25,7 @@ namespace ytime {
 	}
 
 	unsigned long long clock(void) {
-		// 获取程序运行时间
+		// 获取程序运行时间（毫秒）
 		struct timeval tv;
 		struct timezone tz;
 		gettimeofday(&tv, &tz);
