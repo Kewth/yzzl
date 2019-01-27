@@ -30,7 +30,7 @@ namespace people {
 		void leave_map();
 		pos::Pos get_pos();
 		map::Map *get_map();
-		People();
+		People(color::Color*, char, int);
 		virtual ~People();
 	};
 };

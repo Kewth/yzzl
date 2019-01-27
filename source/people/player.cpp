@@ -7,10 +7,7 @@
 
 namespace people {
 	Player::Player():
-		People() {
-		face = '@';
-		color = new color::Blue();
-		clever = 3;
+		People(new color::Blue, '@', 3) {
 	}
 	Player::~Player() {
 	}
