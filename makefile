@@ -72,3 +72,15 @@ dist/yfl: build dist ${OBJECT} build/main_yfl.o
 build/main_yfl.o: main/yfl.cpp
 	${COMPILER} ${CXXFLAGS} -c $< -o $@
 
+/usr/bin/yzzl: dist/yzzl
+	echo '#!/bin/bash' > $<_sys
+	echo cd `pwd` '&&' ./$< >> $<_sys
+	chmod +x $<_sys
+	sudo mv $<_sys $@
+
+/usr/bin/yfl: dist/yfl
+	echo '#!/bin/bash' > $<_sys
+	echo cd `pwd` '&&' ./$< >> $<_sys
+	chmod +x $<_sys
+	sudo mv $<_sys $@
+
