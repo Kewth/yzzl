@@ -9,12 +9,14 @@
 #include "../include/ascii_flash.h"
 
 namespace begin_flash {
-	Marix::Marix(pos::Coord_map<char> _map):
-		_map(_map) {
+	Marix::Marix(pos::Coord_map<char> _map, color::Color *color):
+		_map(_map), color(color) {
+	}
+	Marix::~Marix() {
+		delete color;
 	}
 
 	void Marix::ob_print() {
-		color::Green gr;
 		color::White wh;
 		for(int t=0; t<_map.high+_map.width; t++) {
 			for(int i=0; i<_map.high; i++) {
@@ -22,22 +24,22 @@ namespace begin_flash {
 					if(i + j == t) {
 						wh.change_fore();
 						std::cout << _map(i, j);
-						gr.change_fore();
-					} else if(i + j < t)
+					} else if(i + j < t) {
+						color->change_fore();
 						std::cout << _map(i, j);
+					}
 				std::cout << std::endl;
 			}
 			ytime::ysleep(0.1);
 			cursor::up(_map.high);
 		}
 		cursor::down(_map.high);
-		gr.reset_fore();
+		color->reset_fore();
 		input::clear();
 	}
 
 	void Marix::mid_disapeear() {
 		cursor::up(_map.high);
-		color::Green gr(1);
 		color::White wl;
 		int rx = _map.high >> 1, ry = _map.width >> 1; // 矩阵中心坐标
 		for(int t=0; t*2<_map.high+_map.width; t ++) {
@@ -48,15 +50,16 @@ namespace begin_flash {
 					else if(std::abs(i - rx) + std::abs(j - ry) == t) {
 						wl.change_fore();
 						std::cout << _map(i, j);
-						gr.change_fore();
-					} else
+					} else {
+						color->change_fore();
 						std::cout << _map(i, j);
+					}
 				std::cout << std::endl;
 			}
 			ytime::ysleep(0.1);
 			cursor::up(_map.high);
 		}
-		gr.reset_fore();
+		color->reset_fore();
 		input::clear();
 	}
 
@@ -88,7 +91,12 @@ namespace begin_flash {
 		std::function<pos::Coord_map<char>()> flash[flash_sl]
 			= {Flash1, Flash2, Flash3, Flash4, Flash5, Flash6 };
 		srand(time(0));
-		begin_flash::Marix mar(flash[rand()%flash_sl]());
+		color::Color *color = nullptr;
+		int rd = rand() % 100;
+		if(rd < 60) color = new color::Green();
+		else if(rd < 90) color = new color::Red();
+		else color = new color::Random();
+		begin_flash::Marix mar(flash[rand()%flash_sl](), color);
 		mar.ob_print();
 		mar.mid_disapeear();
 	}
@@ -117,7 +125,7 @@ namespace begin_flash {
 		for(int i=0;i<high;i++)
 			for(int j=0;j<width;j++)
 				cmap(i, j) = s[i][j] ? s[i][j] : ' ';
-		begin_flash::Marix mar(cmap);
+		begin_flash::Marix mar(cmap, new color::Green);
 		mar.ob_print();
 		mar.mid_disapeear();
 	}
