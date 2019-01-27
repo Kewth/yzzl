@@ -4,6 +4,7 @@
 #include "../include/ytime.h"
 #include "../include/color.h"
 #include "../include/cursor.h"
+#include "../include/input.h"
 #include "../include/begin_flash.h"
 #include "../include/ascii_flash.h"
 
@@ -31,6 +32,7 @@ namespace begin_flash {
 		}
 		cursor::down(_map.high);
 		gr.reset_fore();
+		input::clear();
 	}
 
 	void Marix::mid_disapeear() {
@@ -55,6 +57,7 @@ namespace begin_flash {
 			cursor::up(_map.high);
 		}
 		gr.reset_fore();
+		input::clear();
 	}
 
 	void flash(std::string info, bool speedup) {
@@ -62,6 +65,7 @@ namespace begin_flash {
 		color::Color *cr[2] = {new color::Black(0), new color::White(0)};
 		for(int i=0; i < (speedup?20:10); i++) {
 			cr[i & 1]->change_fore();
+			cursor::to_head();
 			std::cout << info << std::endl;
 			cursor::up();
 			if(speedup)
@@ -69,6 +73,7 @@ namespace begin_flash {
 			else
 				ytime::ysleep(0.2);
 		}
+		input::clear();
 		cr[0]->reset_fore();
 		delete cr[0];
 		delete cr[1];
