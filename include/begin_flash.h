@@ -13,5 +13,6 @@ namespace begin_flash {
 	};
 	void welcome();
 	void flash(std::string, bool);
+	void thanks();
 };
 #endif
