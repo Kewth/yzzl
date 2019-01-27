@@ -87,4 +87,26 @@ namespace begin_flash {
 		mar.ob_print();
 		mar.mid_disapeear();
 	}
+
+	void thanks() {
+		// 鸣谢
+		cursor::clear_screen();
+		cursor::set_to(0, 0);
+		begin_flash::flash("Yzzl 的诞生还要感谢许多人和软件、网站", false);
+		const int high = 5, width = 80;
+		const char s[high][width] = {
+			"                                                       ",
+			"“刘大侠”: 最古老的《勇者之路》提供了这个 idea          ",
+			"Ld_liaomo: 帮助实现和完善了 yzzl 用到的库              ",
+			"https://www.bootschool.net/ascii: 开场动画艺术字来源   ",
+			"                                                       ",
+		};
+		pos::Coord_map<char> cmap(high, width);
+		for(int i=0;i<high;i++)
+			for(int j=0;j<width;j++)
+				cmap(i, j) = s[i][j] ? s[i][j] : ' ';
+		begin_flash::Marix mar(cmap);
+		mar.ob_print();
+		mar.mid_disapeear();
+	}
 };
