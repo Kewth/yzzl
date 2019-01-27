@@ -84,3 +84,7 @@ build/main_yfl.o: main/yfl.cpp
 	chmod +x $<_sys
 	sudo mv $<_sys $@
 
+all: /usr/bin/yfl /usr/bin/yzzl
+	@echo
+	@echo installed!
+
