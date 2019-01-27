@@ -68,19 +68,24 @@ namespace users {
 				puts("密码不匹配！");
 				return 2;
 			}
+			cursor::clear_screen(); // 清除登录/注册时的输出
+			puts("正在注册");
 			int playeres = p->regis(name, pass);
+			cursor::set_to(0, 0);
 			if(playeres) {
 				puts("注册失败，可能用户名冲突");
 				return 3;
 			}
 		} else {
+			cursor::clear_screen(); // 清除登录/注册时的输出
+			puts("正在登录");
 			int playeres = p->login(name, pass);
+			cursor::set_to(0, 0);
 			if(playeres) {
 				puts("登录失败，可能用户名或密码错误");
 				return 3;
 			}
 		}
-		cursor::clear_screen(); // 清除登录/注册时的输出
 		begin_flash::flash("成功获得用户", false);
 		cursor::clear_screen();
 		return 0;
