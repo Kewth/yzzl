@@ -1,12 +1,12 @@
 COMPILER=g++
 CXXFLAGS=-Wall -Werror -I ./include/
-OBJECT=build/main.o build/begin_flash.o build/color.o build/cursor.o build/pos.o \
+OBJECT=build/begin_flash.o build/color.o build/cursor.o build/pos.o \
        build/ytime.o build/input.o build/people.o build/player.o build/map.o \
        build/floor.o build/base_floor.o build/users.o build/maincity.o \
 	   build/ascii_flash.o
 
-dist/yzzl: build dist ${OBJECT}
-	${COMPILER} ${OBJECT} -o $@ -lpthread -std=c++11 -I/usr/include/python3.6m -lpython3.6m
+dist/yzzl: build dist ${OBJECT} build/main_yzzl.o
+	${COMPILER} ${OBJECT} build/main_yzzl.o -o $@ -lpthread -std=c++11 -I/usr/include/python3.6m -lpython3.6m
 
 # lib/build/lock: lib/*.cpp
 	# cd lib ; make ; cd ..
@@ -17,7 +17,7 @@ dist:
 build:
 	mkdir -p build
 
-build/main.o: source/main.cpp include/*
+build/main_yzzl.o: main/yzzl.cpp include/*
 	${COMPILER} ${CXXFLAGS} -c $< -o $@
 
 build/begin_flash.o: source/begin_flash.cpp include/*
@@ -65,3 +65,10 @@ build/ascii_flash.o: source/ascii_flash.cpp include/*
 clean:
 	rm -f build/*.o dist/yzzl
 	# cd lib ; make clean ; cd ..
+
+dist/yfl: build dist ${OBJECT} build/main_yfl.o
+	${COMPILER} ${OBJECT} build/main_yfl.o -o $@ -lpthread -std=c++11 -I/usr/include/python3.6m -lpython3.6m
+
+build/main_yfl.o: main/yfl.cpp
+	${COMPILER} ${CXXFLAGS} -c $< -o $@
+
