@@ -81,7 +81,7 @@ namespace begin_flash {
 		begin_flash::flash("Welcome to yzzl", true);
 		const int flash_sl = 6;
 		std::function<pos::Coord_map<char>()> flash[flash_sl]
-			= {Flash1, Flash2, Flash3, Flash4, Flash5, };
+			= {Flash1, Flash2, Flash3, Flash4, Flash5, Flash6 };
 		srand(time(0));
 		begin_flash::Marix mar(flash[rand()%flash_sl]());
 		mar.ob_print();
