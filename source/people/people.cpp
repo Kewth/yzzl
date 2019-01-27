@@ -4,8 +4,8 @@
 #include "../../include/color.h"
 
 namespace people {
-	People::People():
-		_lv(0), face('?'),  m_exp(0) {
+	People::People(color::Color *color, char face, int clever):
+		_lv(0), color(color), face(face),  m_exp(0), clever(clever) {
 	}
 	People::~People() {
 		delete color;

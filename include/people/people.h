@@ -22,6 +22,7 @@ namespace people {
 		color::Color *color;
 		char face;
 		long long m_exp;
+		int clever;
 		int goin(floor::Floor *); // 事件：进入地面
 		int move(pos::Pos); // 在 Map 中移动到某位置
 		void todo(); // 观察，作出决策
@@ -29,7 +30,7 @@ namespace people {
 		void leave_map();
 		pos::Pos get_pos();
 		map::Map *get_map();
-		People();
+		People(color::Color*, char, int);
 		virtual ~People();
 	};
 };

@@ -17,6 +17,8 @@ namespace map {
 		// 检查 [p] 的移动
 		if(ne._x < 0 or ne._x >= high or ne._y < 0 or ne._y >= width)
 			return 2; // 越界
+		if(not _floor(ne))
+			return 2; // 越界
 		if(_people(ne))
 			return 1; // 无法移动，该位置正忙
 		int gores = p->goin(_floor(ne)); // 尝试进入，触发事件 goin
