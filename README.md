@@ -11,3 +11,5 @@ yzzl, 源于古老的“勇者之路”
 感谢 yzzl ，见证我 Windows 到 Linux 。  
 感谢 yzzl ，见证我 Dev-c++ 到 Vim 。  
 感谢 yzzl ，见证我对 OOP, namespace, 多文件编译, git 的一步步学习。
+
+等待重生。
