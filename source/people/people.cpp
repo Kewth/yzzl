@@ -10,7 +10,7 @@ namespace people {
 	People::~People() {
 		delete color;
 	}
-	int People::goin(floor::Floor *f) {
+	int People::goin(n_floor::Floor *f) {
 		f->meet(this);
 		// 之后在这提供派生类的接口
 		return 0;

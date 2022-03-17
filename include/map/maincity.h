@@ -6,7 +6,7 @@ namespace map {
 	class Maincity: public Map {
 		// 主城
 	private:
-		class _thanks: public floor::Floor {
+		class _thanks: public n_floor::Floor {
 		protected:
 			void _meet(people::People *);
 		public:

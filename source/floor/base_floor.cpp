@@ -2,7 +2,7 @@
 #include "../../include/people/people.h"
 #include "../../include/color.h"
 
-namespace floor {
+namespace n_floor {
 	First_floor::First_floor():
 		Floor(new color::Purple(), '+') {
 	}

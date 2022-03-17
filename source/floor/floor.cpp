@@ -1,7 +1,7 @@
 #include "../../include/floor/floor.h"
 #include "../../include/color.h"
 
-namespace floor {
+namespace n_floor {
 	void Floor::meet(people::People *p) {
 		_meet(p);
 	}

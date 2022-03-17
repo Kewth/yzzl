@@ -28,7 +28,7 @@ namespace map {
 		_people(ne) = p;
 		return 0;
 	}
-	floor::Floor *Map::get_floor(pos::Pos ps, int dx, int dy) {
+	n_floor::Floor *Map::get_floor(pos::Pos ps, int dx, int dy) {
 		return _floor(ps._x + dx, ps._y + dy);
 	}
 	people::People *Map::get_people(pos::Pos ps, int dx, int dy) {

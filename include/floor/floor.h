@@ -9,7 +9,7 @@ namespace map {
 namespace color {
 	class Color;
 };
-namespace floor {
+namespace n_floor {
 	class Floor {
 	protected:
 		virtual void _meet(people::People *) = 0;

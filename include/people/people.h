@@ -2,7 +2,7 @@
 #define people_H
 #include <queue>
 #include "../pos.h"
-namespace floor {
+namespace n_floor {
 	class Floor;
 };
 namespace map {
@@ -23,7 +23,7 @@ namespace people {
 		char face;
 		long long m_exp;
 		int clever;
-		int goin(floor::Floor *); // 事件：进入地面
+		int goin(n_floor::Floor *); // 事件：进入地面
 		int move(pos::Pos); // 在 Map 中移动到某位置
 		void todo(); // 观察，作出决策
 		void join_map(map::Map *);

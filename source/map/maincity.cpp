@@ -16,13 +16,13 @@ namespace map {
 		Map(10, 20) {
 		for(int i=0;i<10;i++)
 			for(int j=0;j<10;j++)
-					_floor(i, j) = new floor::Grass();
+					_floor(i, j) = new n_floor::Grass();
 		// 创造出口
 		delete _floor(9, 9);
-		_floor(9, 9) = new floor::End_floor();
+		_floor(9, 9) = new n_floor::End_floor();
 		// 鸣谢
 		for(int j=10;j<19;j++)
-			_floor(5, j) = new floor::Grass();
+			_floor(5, j) = new n_floor::Grass();
 		_floor(5, 19) = new _thanks();
 	}
 	Maincity::~Maincity() {

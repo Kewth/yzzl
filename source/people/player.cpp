@@ -56,7 +56,7 @@ namespace people {
 						p->color->change_fore();
 						putchar(p->face);
 					} else {
-						floor::Floor *f = get_map()->get_floor(get_pos(), i, j);
+						n_floor::Floor *f = get_map()->get_floor(get_pos(), i, j);
 						if(f) {
 							f->color->change_fore();
 							putchar(f->face);
